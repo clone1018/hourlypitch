@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hourly Pitch</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+            "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+            "Helvetica Neue", sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        main,
+        main div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        main {
+            align-items: center;
+
+            margin: 1in;
+        }
+
+        main > div {
+            margin: -5rem 1rem 0 1rem;
+            z-index: 200;
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        p {
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        p sup {
+            font-size: 0.5rem;
+            font-weight: 400;
+        }
+
+        img {
+            position: fixed;
+            bottom: 0;
+            width: 200px;
+            left: calc(50vw - 100px);
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div>
+        <h1>{{.Pitch}}</h1>
+        <p>The Hourly Pitch.<sup>TM</sup></p>
+    </div>
+</main>
+</body>
+</html>
