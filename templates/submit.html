@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hourly Pitch</title>
+    <title>Submit a Pitch</title>
+
+    <!--
+    Welcome!
+
+    This website uses no cookies, and does not log your requests.
+
+    It's source is at: https://github.com/clone1018/hourlypitch
+
+    -->
+
     <style>
         body,
         html {
@@ -15,6 +25,7 @@
             "Helvetica Neue", sans-serif;
             padding: 0;
             margin: 0;
+            background-color: #fefedf;
         }
 
         main,
@@ -27,12 +38,10 @@
 
         main {
             align-items: center;
-
-            margin: 1in;
         }
 
         main > div {
-            margin: -5rem 1rem 0 1rem;
+            margin: -5rem 5rem 0 5rem;
             z-index: 200;
         }
 
@@ -59,14 +68,42 @@
             width: 200px;
             left: calc(50vw - 100px);
         }
+
+        footer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            padding-right: 10px;
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            width: 400px;
+            height: 160px;
+            background: #fff;
+            border: 1px solid;
+            border-radius: 5px;
+            display: block;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 <main>
-    <form>
-        <textarea></textarea>
-        <input type="submit">
+    <p>{{.Message}}</p>
+
+    <form method="POST" action="/submit-save">
+        <label>
+            Your Idea
+            <textarea name="pitch"></textarea>
+        </label>
+        <input type="submit" value="Submit Your Idea">
     </form>
 </main>
+<footer>
+    <a href="/">Back Home</a>
+</footer>
 </body>
 </html>

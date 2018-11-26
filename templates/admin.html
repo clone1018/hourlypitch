@@ -1,0 +1,8 @@
+{{range .}}
+    <form action="/admin/approve">
+        <input type="hidden" name="id" value="{{.ID}}">
+        <input type="submit" value="Approve">
+
+        <span>{{.Pitch}}</span>
+    </form>
+{{end}}
