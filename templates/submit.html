@@ -12,7 +12,6 @@
     This website uses no cookies, and does not log your requests.
 
     It's source is at: https://github.com/clone1018/hourlypitch
-
     -->
 
     <style>
@@ -26,6 +25,8 @@
             padding: 0;
             margin: 0;
             background-color: #fefedf;
+
+            font-size: 14px;
         }
 
         main,
@@ -38,16 +39,17 @@
 
         main {
             align-items: center;
-        }
-
-        main > div {
-            margin: -5rem 5rem 0 5rem;
+            margin: -5rem 1rem 0 1rem;
             z-index: 200;
         }
 
         h1 {
+            font-size: 1em;
+        }
+
+        h2 {
             font-weight: 900;
-            font-size: 2rem;
+            font-size: 1.2em;
             margin-bottom: 0.2rem;
         }
 
@@ -78,15 +80,24 @@
         }
 
         textarea {
-            width: 400px;
-            height: 160px;
+            width: 90vw;
+            height: 45vh;
             background: #fff;
             border: 1px solid;
             border-radius: 5px;
             display: block;
-            font-size: 14px;
+            font-size: 1.2em;
             margin-top: 10px;
             margin-bottom: 10px;
+        }
+
+        @media all and (min-width: 700px) {
+            body, html   {
+                font-size: 20px;
+            }
+            main > div {
+                margin: -5rem 5rem 0 5rem;
+            }
         }
     </style>
 </head>
@@ -99,7 +110,7 @@
             Your Idea
             <textarea name="pitch"></textarea>
         </label>
-        <input type="submit" value="Submit Your Idea">
+        <button type="submit">Submit Your Idea</button>
     </form>
 </main>
 <footer>

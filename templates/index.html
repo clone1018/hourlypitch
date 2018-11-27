@@ -26,6 +26,8 @@
             padding: 0;
             margin: 0;
             background-color: #fefedf;
+
+            font-size: 14px;
         }
 
         main,
@@ -41,13 +43,17 @@
         }
 
         main > div {
-            margin: -5rem 5rem 0 5rem;
+            margin: -5rem 1rem 0 1rem;
             z-index: 200;
         }
 
         h1 {
+            font-size: 1em;
+        }
+
+        h2 {
             font-weight: 900;
-            font-size: 2rem;
+            font-size: 1.2em;
             margin-bottom: 0.2rem;
         }
 
@@ -76,13 +82,22 @@
             padding-right: 10px;
             padding-bottom: 10px;
         }
+
+        @media all and (min-width: 700px) {
+            body, html   {
+                font-size: 20px;
+            }
+            main > div {
+                margin: -5rem 5rem 0 5rem;
+            }
+        }
     </style>
 </head>
 <body>
 <main>
     <div>
-        <h1>{{.Pitch}}</h1>
-        <p>The Hourly Pitch.</p>
+        <h2>{{.Pitch}}</h2>
+        <h1>The Hourly Pitch.</h1>
     </div>
 </main>
 <footer>

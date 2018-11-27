@@ -1,4 +1,4 @@
-CREATE TABLE `ideas` ( 
+CREATE TABLE IF NOT EXISTS `ideas` (
     `id` INTEGER PRIMARY KEY AUTOINCREMENT, 
     `pitch` TEXT, 
     `created` INTEGER, 

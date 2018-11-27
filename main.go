@@ -4,9 +4,11 @@ import (
 	"database/sql"
 	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -32,6 +34,22 @@ func grabDB() *sql.DB {
 		log.Fatal(err)
 	}
 	return db
+}
+func loadSchema(schemaFile string) {
+	file, err := ioutil.ReadFile(schemaFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	requests := strings.Split(string(file), ";\n")
+
+	for _, request := range requests {
+		_, err := db.Exec(request)
+		if err != nil {
+			log.Println(request)
+			log.Fatal(err)
+		}
+	}
 }
 
 func loadTemplates() {
@@ -174,7 +192,7 @@ func approve(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRecentIdea() Idea {
-	rows, err := db.Query("SELECT id,pitch,created,approved,shown FROM ideas ORDER BY shown LIMIT 1;")
+	rows, err := db.Query("SELECT id,pitch,created,approved,shown FROM ideas where approved is not null ORDER BY shown LIMIT 1;")
 	if rows.Next() == false {
 		log.Print(err)
 	}
@@ -204,6 +222,7 @@ func auth(fn http.HandlerFunc) http.HandlerFunc {
 
 func main() {
 	db = grabDB()
+	loadSchema("db/schema.sql")
 	loadTemplates()
 
 	currentIdea = getRecentIdea()
